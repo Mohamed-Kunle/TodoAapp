@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="tailwind.min.css" />
+    <title>Todo List</title>
+  </head>
+  <body class="bg-gray-800 text-white">
+    <div
+      class="
+        justify-center
+        bg-gray-600
+        mx-auto
+        max-w-md
+        m-3
+        rounded-lg
+        shadow-lg
+      "
+    >
+      <div>
+        <h4 class="text-4xl text-center mb-2 p-2 pt-2">My Todo App</h4>
+        <hr />
+      </div>
+
+      <div id="divsContainer" class="allDons">
+        <div class="mt-4 px-3 flex justify-between items-center">
+          <h2>Todo 1</h2>
+          <button class="bg-green-500 rounded-lg p-2 m-1">Done</button>
+        </div>
+
+        <div class="mt-4 px-3 flex justify-between items-center">
+          <h2>Todo 1</h2>
+          <button class="bg-green-500 rounded-lg p-2 m-1">Done</button>
+        </div>
+
+        <div class="mt-4 px-3 flex justify-between items-center">
+          <h2>Todo 1</h2>
+          <button class="bg-green-500 rounded-lg p-2 m-1">Done</button>
+        </div>
+      </div>
+
+      <hr class="mt-2" />
+
+      <div class="mt-6 m-3 flex">
+        <input
+          placeholder="New Todo..."
+          class="
+            rounded-lg
+            p-1
+            my-2
+            placeholder-gray-500
+            max-w-md
+            flex-1
+            text-gray-900
+          "
+          type="text "
+        />
+        <button id="btnAdd" class="bg-yellow-500 rounded-lg p-2 m-2 mb-1">
+          Add
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
