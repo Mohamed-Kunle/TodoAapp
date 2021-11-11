@@ -33,6 +33,7 @@ alldons.addEventListener("click", function (e) {
 
   if (!allDoneButtons) return;
   allDoneButtons.className = "bg-red-500 rounded-lg p-2 m-2";
+  allDoneButtons.textContent = "Remove";
 
   const findingchildH2 = allDoneButtons.previousElementSibling;
   findingchildH2.className = "line-through";
