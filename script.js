@@ -27,8 +27,19 @@ btnAdd.addEventListener("click", function () {
 });
 
 alldons.addEventListener("click", function (e) {
-  const done = e.target.closest(".bg-green-500");
-  // done.remove();
-  divContainer.remove();
-  console.log(done);
+  const allDoneButtons = e.target.closest(".bg-green-500");
+
+  console.log(allDoneButtons);
+
+  if (!allDoneButtons) return;
+  allDoneButtons.className = "bg-red-500 rounded-lg p-2 m-2";
+
+  const findingchildH2 = allDoneButtons.previousElementSibling;
+  findingchildH2.className = "line-through";
+
+  console.log(findingchildH2);
+
+  allDoneButtons.addEventListener("click", function () {
+    e.target.parentElement.remove();
+  });
 });
