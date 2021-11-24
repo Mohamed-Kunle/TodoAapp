@@ -1,46 +1,41 @@
-const btnAdd = document.querySelector("#btnAdd");
-const alldons = document.querySelector(".allDons");
-let divContainer;
+const content = {
+  data() {
+    return {
+      todos: [
+        {
+          todoVal: "TODO 1",
+          line: "line-through",
+        },
+      ],
+    };
+  },
 
-btnAdd.addEventListener("click", function () {
-  const divsContainer = document.querySelector("#divsContainer");
+  methods: {
+    addNewTodo() {
+      const inputField = document.querySelector("input");
+      console.log(inputField.value);
 
-  const inputField = document.querySelector("input");
+      if (inputField.value === "") return;
 
-  if (inputField.value === "") return;
+      this.todos.push({ todoVal: inputField.value });
 
-  divContainer = document.createElement("div");
+      inputField.value = "";
+      console.log(this.todos);
+    },
+    removeTodo(event) {
+      const targetElement = event.target;
 
-  const h2 = document.createElement("h2");
-  const btnDone = document.createElement("button");
+      targetElement.className = "bg-red-500 rounded-lg p-2 m-2";
 
-  divContainer.className = "mt-4 px-3 flex justify-between items-center";
-  h2.textContent = inputField.value;
+      const findingchildH2 = targetElement.previousElementSibling;
 
-  btnDone.className = "bg-green-500 rounded-lg p-2 m-1";
-  btnDone.textContent = "Done";
+      findingchildH2.className = "line-through";
+      // this.todos.splice(index, 1);
 
-  divContainer.appendChild(h2);
-  divContainer.appendChild(btnDone);
-  divsContainer.appendChild(divContainer);
-  inputField.value = "";
-});
+      // targetElement.parentElement.remove();
+    },
+  },
+};
 
-alldons.addEventListener("click", function (e) {
-  const allDoneButtons = e.target.closest(".bg-green-500");
-
-  console.log(allDoneButtons);
-
-  if (!allDoneButtons) return;
-  allDoneButtons.className = "bg-red-500 rounded-lg p-2 m-2";
-  allDoneButtons.textContent = "Remove";
-
-  const findingchildH2 = allDoneButtons.previousElementSibling;
-  findingchildH2.className = "line-through";
-
-  console.log(findingchildH2);
-
-  allDoneButtons.addEventListener("click", function () {
-    e.target.parentElement.remove();
-  });
-});
+const app = Vue.createApp(content);
+app.mount("#container");

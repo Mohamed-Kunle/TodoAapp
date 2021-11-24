@@ -7,63 +7,61 @@
     <title>Todo List</title>
   </head>
   <body class="bg-gray-800 text-white">
-    <div
-      class="
-        justify-center
-        bg-gray-600
-        mx-auto
-        max-w-md
-        m-3
-        rounded-lg
-        shadow-lg
-        m-4
-      "
-    >
-      <div>
-        <h4 class="text-4xl text-center mb-2 p-2 pt-2">My Todo App</h4>
-        <hr />
-      </div>
-
-      <div id="divsContainer" class="allDons p-6">
-        <div class="mt-4 px-3 flex justify-between items-center">
-          <h2>Todo 1</h2>
-          <button class="bg-green-500 rounded-lg p-2 m-1">Done</button>
+    <div id="container">
+      <div
+        class="
+          justify-center
+          bg-indigo-700
+          mx-auto
+          max-w-md
+          m-3
+          rounded-lg
+          shadow-2xl
+          m-4
+        "
+      >
+        <div>
+          <h4 class="text-4xl text-center mb-2 p-2 pt-2">My Todo App</h4>
+          <hr />
         </div>
 
-        <div class="mt-4 px-3 flex justify-between items-center">
-          <h2 class="hover:shadow-lg">Todo 2</h2>
-          <button class="bg-green-500 rounded-lg p-2 m-1">Done</button>
+        <div v-for="(todo,i) in todos" id="divsContainer">
+          <div class="px-6 py-2 flex justify-between items-center">
+            <h2>{{todo.todoVal}}</h2>
+            <button @click="removeTodo" class="bg-green-500 rounded-lg p-2 m-1">
+              Done
+            </button>
+          </div>
         </div>
 
-        <div class="mt-4 px-3 flex justify-between items-center">
-          <h2 class="test">Todo 3</h2>
-          <button class="bg-green-500 rounded-lg p-2 m-1">Done</button>
+        <hr class="mt-2" />
+
+        <div class="m-4 p-4 flex">
+          <input
+            placeholder="New Todo..."
+            class="
+              rounded-lg
+              p-2
+              my-2
+              placeholder-gray-500
+              max-w-md
+              flex-1
+              text-gray-900
+              focus:ring-4
+              outline-none
+            "
+            type="text "
+          />
+          <button
+            @click="addNewTodo()"
+            class="bg-yellow-500 rounded-lg p-2 m-2"
+          >
+            Add
+          </button>
         </div>
-      </div>
-
-      <hr class="mt-2" />
-
-      <div class="m-4 p-4 flex">
-        <input
-          placeholder="New Todo..."
-          class="
-            rounded-lg
-            p-2
-            my-2
-            placeholder-gray-500
-            max-w-md
-            flex-1
-            text-gray-900
-            focus:ring-4
-            outline-none
-          "
-          type="text "
-        />
-        <button id="btnAdd" class="bg-yellow-500 rounded-lg p-2 m-2">
-          Add
-        </button>
       </div>
     </div>
+    <script src="vue.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
